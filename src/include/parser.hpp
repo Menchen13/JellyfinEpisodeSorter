@@ -1,5 +1,6 @@
 #pragma once
 
+#include <concepts>
 #include <string>
 #include <vector>
 
@@ -21,25 +22,17 @@ concept JsonParsableInput =
       std::end(t);
     };
 
-// returns vector of series
-// *WARNING* can throw:
-// parse_error.101 -> failed json parsing
+// concept for my own structs
+template <typename T>
+concept MediaItem = std::same_as<T, Series> || std::same_as<T, Episode>;
 
-std::vector<Series> parseSeriesList(JsonParsableInput auto &&text) {
-  json j = json::parse(
-      std::forward<decltype(text)>(text)); // can throw need to handle
+// returns vector of jellyfin structs
+// initalises Episode.season and Episode.episodeNumber to 0
+// *WARNING* Can throw some sort of json::exception
+template <MediaItem T>
+std::vector<T> parseJellyfinResponse(JsonParsableInput auto &&text) {
+  json j = json::parse(std::forward<decltype(text)>(text));
 
-  auto items = j["Items"];
-
-  std::vector<Series> series;
-  series.reserve(items.size());
-
-  for (const auto &item : items) {
-    series.emplace_back(item["Id"], item["Name"]);
-  }
-
-  return series;
+  // return vector created from Items array via nlohmann::json api
+  return j.at("Items").get<std::vector<T>>();
 }
-
-// IMPLEMENT
-std::vector<Series> parseEpisodesList(JsonParsableInput auto &&Text);
