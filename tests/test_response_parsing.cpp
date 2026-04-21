@@ -1,4 +1,5 @@
 #include <fstream>
+#include <stdexcept>
 #include <string>
 
 #include <gtest/gtest.h>
@@ -51,4 +52,21 @@ TEST(ResponseParsing, MultipleItems) {
 }
 
 
-//CREATE UNIT TEST FOR NOITEMS error handeling
+TEST(ResponseParsing, NoItems) {
+  
+  std::filesystem::path dataPath =
+      std::filesystem::path(TEST_DATA_DIR) / "SearchNoItems.json";
+
+  std::ifstream response(dataPath);
+  ASSERT_TRUE(response.is_open()) << "Could not find: " << dataPath;
+
+  bool caughtError{false};
+
+  try {
+    std::string result = processSearch(response);
+  } catch (const std::runtime_error& e) {
+    caughtError = true;
+  }
+
+  ASSERT_TRUE(caughtError) << "Function did not throw runtime_error!";
+}

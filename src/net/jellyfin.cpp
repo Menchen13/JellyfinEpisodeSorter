@@ -1,4 +1,3 @@
-#include <expected>
 #include <format>
 #include <string_view>
 
@@ -8,11 +7,10 @@
 
 #include "net/jellyfin.hpp"
 using nlohmann::json;
-using std::expected;
 
-std::expected<std::string, std::string>
-net::getSeriesId(std::string_view &url, std::string_view& searchString,
-            std::string_view &apiKey) {
+std::string getSeriesId(const std::string_view &url,
+                             const std::string_view &searchString,
+                             const std::string_view &apiKey) {
 
   const cpr::Url itemApi = std::format("{}/Items", url);
 
@@ -22,6 +20,5 @@ net::getSeriesId(std::string_view &url, std::string_view& searchString,
 
   const cpr::Response r = cpr::Get(itemApi, params);
 
-  return "GOOD";
+  return processSearch(r.text);
 }
-
