@@ -32,7 +32,6 @@ int main() {
 
     std::string raw = fetchSeriesRaw(url, title, apiKey);
 
-    // THROWS FOR SOME REASON FIX ASAP TODO
     std::vector<Series> seriesVec = parseSeriesList(raw);
 
     // turn into helper function to save space TODO
@@ -43,6 +42,7 @@ int main() {
       break;
     case 1:
       series = seriesVec[0];
+      break;
     default:
       while (true) {
         std::println("Found multiple series matching searchterm.");
@@ -82,7 +82,7 @@ int main() {
     std::print(stderr, "Runtime_error!\n{}", e.what());
   }
 
-  helperPrintMaps(episodeMap);
+  // helperPrintMaps(episodeMap);
   std::cout << series << std::endl;
 
   // asynchronously get the titleframe for each episode and ocr it.

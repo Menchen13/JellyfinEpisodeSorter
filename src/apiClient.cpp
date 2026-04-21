@@ -1,3 +1,4 @@
+#include <cpr/cprtypes.h>
 #include <format>
 #include <stdexcept>
 #include <string_view>
@@ -19,14 +20,14 @@ std::string fetchSeriesRaw(const std::string_view &url,
   const auto params = cpr::Parameters{{"searchTerm", searchString.data()},
                                       {"recursive", "true"},
                                       {"IncludeItemTypes", "Series"}};
+  const auto headers = cpr::Header{{"X-Emby-Token", "c5d2356a93834aa5bba1de582eb1ecc0"}};
 
-  const cpr::Response r = cpr::Get(itemApi, params);
+  const cpr::Response r = cpr::Get(itemApi, params, headers);
 
   if(r.error) {
-    throw std::runtime_error(std::format("FetchSeriesRaw GET Error: {}",r.error.message));
+    throw std::runtime_error(std::format("Network Error: {}", r.error.message));
+  } else if(r.status_code >= 400) {
+    throw std::runtime_error(std::format("HTTP GET Error: {}", r.status_line));
   }
-  
-
-
   return r.text;
 }
