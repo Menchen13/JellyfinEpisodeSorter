@@ -1,7 +1,7 @@
 #include <cpr/cpr.h>
 #include <nlohmann/json.hpp>
 #include <print>
-#include <providers/FandomProvider.hpp>
+#include <FandomProvider.hpp>
 
 #include <regex>
 

@@ -1,14 +1,16 @@
 #include <format>
+#include <stdexcept>
 #include <string_view>
 
 #include <cpr/api.h>
 #include <cpr/parameters.h>
 #include <nlohmann/json.hpp>
 
-#include "net/jellyfin.hpp"
+#include "apiClient.hpp"
+
 using nlohmann::json;
 
-std::string getSeriesId(const std::string_view &url,
+std::string fetchSeriesRaw(const std::string_view &url,
                              const std::string_view &searchString,
                              const std::string_view &apiKey) {
 
@@ -20,5 +22,11 @@ std::string getSeriesId(const std::string_view &url,
 
   const cpr::Response r = cpr::Get(itemApi, params);
 
-  return processSearch(r.text);
+  if(r.error) {
+    throw std::runtime_error(std::format("FetchSeriesRaw GET Error: {}",r.error.message));
+  }
+  
+
+
+  return r.text;
 }

@@ -5,7 +5,7 @@
 #include <map>
 #include <string>
 
-#include "interfaces/IEpisodeProvider.hpp"
+#include "IEpisodeProvider.hpp"
 
 using fandomParser =
     std::function<std::map<unsigned, std::map<unsigned int, std::string>>(
