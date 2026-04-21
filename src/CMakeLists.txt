@@ -1,6 +1,6 @@
 file(GLOB lib-src "providers/*.cpp")
 
-add_library(jes-core STATIC ${lib-src})
+add_library(jes-core STATIC ${lib-src} "net/jellyfin.cpp")
 
 target_link_libraries(jes-core PUBLIC cpr::cpr nlohmann_json::nlohmann_json)
 target_include_directories(jes-core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
