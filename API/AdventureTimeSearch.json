@@ -1,0 +1,46 @@
+{
+  "Items": [
+    {
+      "Name": "Adventure Time - Abenteuerzeit mit Finn und Jake",
+      "ServerId": "d740195c154247a795312b002acfa912",
+      "Id": "026193846bf3f910617f1878634f306a",
+      "PremiereDate": "2010-04-04T22:00:00.0000000Z",
+      "OfficialRating": "FSK-6",
+      "ChannelId": null,
+      "CommunityRating": 8.494,
+      "RunTimeTicks": 6600000000,
+      "ProductionYear": 2010,
+      "IsFolder": true,
+      "Type": "Series",
+      "Status": "Ended",
+      "AirDays": [],
+      "ImageTags": {
+        "Thumb": "b40270a5d5b552e63b97006704de890a",
+        "Primary": "1f52bbebd1bc76ea1828ca5a89fb0af7",
+        "Logo": "02c8e1a7aaacb48d950687ae9b77cfc5"
+      },
+      "BackdropImageTags": [
+        "e316b71240f7f5ec746f153a5b099fd3"
+      ],
+      "ImageBlurHashes": {
+        "Backdrop": {
+          "e316b71240f7f5ec746f153a5b099fd3": "W~MsAt$|fl-UocWF}@sTj@spa#oertR.aeNHR.xExtfkWEW;WqjI"
+        },
+        "Thumb": {
+          "b40270a5d5b552e63b97006704de890a": "WDA]{.-qIBj2$wxaS.kDi@wtnNRjJ-s.V[s.V@n#-rV?s;g5t6$$"
+        },
+        "Primary": {
+          "1f52bbebd1bc76ea1828ca5a89fb0af7": "dTJI|d-:u6%%TzNFxZofJVNfn2rp-;s8WBOF1lxuNzNg"
+        },
+        "Logo": {
+          "02c8e1a7aaacb48d950687ae9b77cfc5": "WMExR}WT9@RPELkCD4s:tRkCkWWVO@nlrsX9WBR*9toLr?oLn%Sg"
+        }
+      },
+      "LocationType": "FileSystem",
+      "MediaType": "Unknown",
+      "EndDate": "2018-09-02T22:00:00.0000000Z"
+    }
+  ],
+  "TotalRecordCount": 1,
+  "StartIndex": 0
+}

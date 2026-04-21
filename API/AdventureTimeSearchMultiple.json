@@ -1,0 +1,223 @@
+{
+  "Items": [
+    {
+      "Name": "Adventure Time - Abenteuerzeit mit Finn und Jake",
+      "ServerId": "d740195c154247a795312b002acfa912",
+      "Id": "026193846bf3f910617f1878634f306a",
+      "PremiereDate": "2010-04-04T22:00:00.0000000Z",
+      "OfficialRating": "FSK-6",
+      "ChannelId": null,
+      "CommunityRating": 8.494,
+      "RunTimeTicks": 6600000000,
+      "ProductionYear": 2010,
+      "IsFolder": true,
+      "Type": "Series",
+      "Status": "Ended",
+      "AirDays": [],
+      "ImageTags": {
+        "Thumb": "b40270a5d5b552e63b97006704de890a",
+        "Primary": "1f52bbebd1bc76ea1828ca5a89fb0af7",
+        "Logo": "02c8e1a7aaacb48d950687ae9b77cfc5"
+      },
+      "BackdropImageTags": [
+        "e316b71240f7f5ec746f153a5b099fd3"
+      ],
+      "ImageBlurHashes": {
+        "Backdrop": {
+          "e316b71240f7f5ec746f153a5b099fd3": "W~MsAt$|fl-UocWF}@sTj@spa#oertR.aeNHR.xExtfkWEW;WqjI"
+        },
+        "Thumb": {
+          "b40270a5d5b552e63b97006704de890a": "WDA]{.-qIBj2$wxaS.kDi@wtnNRjJ-s.V[s.V@n#-rV?s;g5t6$$"
+        },
+        "Primary": {
+          "1f52bbebd1bc76ea1828ca5a89fb0af7": "dTJI|d-:u6%%TzNFxZofJVNfn2rp-;s8WBOF1lxuNzNg"
+        },
+        "Logo": {
+          "02c8e1a7aaacb48d950687ae9b77cfc5": "WMExR}WT9@RPELkCD4s:tRkCkWWVO@nlrsX9WBR*9toLr?oLn%Sg"
+        }
+      },
+      "LocationType": "FileSystem",
+      "MediaType": "Unknown",
+      "EndDate": "2018-09-02T22:00:00.0000000Z"
+    },
+    {
+      "Name": "ADVENTURE TIME EXTRAS",
+      "ServerId": "d740195c154247a795312b002acfa912",
+      "Id": "10e409d2d34b38e270c1dfdfefef4fda",
+      "ExtraType": "Unknown",
+      "Container": "mkv",
+      "PremiereDate": "2026-01-11T16:42:56.0000000Z",
+      "OfficialRating": "FSK-6",
+      "ChannelId": null,
+      "CommunityRating": 8.494,
+      "RunTimeTicks": 6638960000,
+      "ProductionYear": 2026,
+      "IsFolder": false,
+      "Type": "Video",
+      "ParentLogoItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropImageTags": [
+        "e316b71240f7f5ec746f153a5b099fd3"
+      ],
+      "VideoType": "VideoFile",
+      "ImageTags": {
+        "Primary": "aa63e80e24f35f8f4001a0f281c04908"
+      },
+      "BackdropImageTags": [],
+      "ParentLogoImageTag": "02c8e1a7aaacb48d950687ae9b77cfc5",
+      "ImageBlurHashes": {
+        "Primary": {
+          "aa63e80e24f35f8f4001a0f281c04908": "NbRysg%M%M?bM{?b~qt7oft7t7ofIUof-;t7M{Rj"
+        },
+        "Logo": {
+          "02c8e1a7aaacb48d950687ae9b77cfc5": "WMExR}WT9@RPELkCD4s:tRkCkWWVO@nlrsX9WBR*9toLr?oLn%Sg"
+        },
+        "Thumb": {
+          "b40270a5d5b552e63b97006704de890a": "WDA]{.-qIBj2$wxaS.kDi@wtnNRjJ-s.V[s.V@n#-rV?s;g5t6$$"
+        },
+        "Backdrop": {
+          "e316b71240f7f5ec746f153a5b099fd3": "W~MsAt$|fl-UocWF}@sTj@spa#oertR.aeNHR.xExtfkWEW;WqjI"
+        }
+      },
+      "ParentThumbItemId": "026193846bf3f910617f1878634f306a",
+      "ParentThumbImageTag": "b40270a5d5b552e63b97006704de890a",
+      "LocationType": "FileSystem",
+      "MediaType": "Video"
+    },
+    {
+      "Name": "ADVENTURE TIME EXTRAS",
+      "ServerId": "d740195c154247a795312b002acfa912",
+      "Id": "25003ee1620a178c68ac974766bef952",
+      "ExtraType": "Unknown",
+      "HasSubtitles": true,
+      "Container": "mkv",
+      "PremiereDate": "2026-01-11T16:41:55.0000000Z",
+      "OfficialRating": "FSK-6",
+      "ChannelId": null,
+      "CommunityRating": 8.494,
+      "RunTimeTicks": 6855839999,
+      "ProductionYear": 2026,
+      "IsFolder": false,
+      "Type": "Video",
+      "ParentLogoItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropImageTags": [
+        "e316b71240f7f5ec746f153a5b099fd3"
+      ],
+      "VideoType": "VideoFile",
+      "ImageTags": {
+        "Primary": "b9b6234defcbc7670abc5d01f971a092"
+      },
+      "BackdropImageTags": [],
+      "ParentLogoImageTag": "02c8e1a7aaacb48d950687ae9b77cfc5",
+      "ImageBlurHashes": {
+        "Primary": {
+          "b9b6234defcbc7670abc5d01f971a092": "N83]4.amado%V@kFomWBW8j]kVf6WFavkBayj=j]"
+        },
+        "Logo": {
+          "02c8e1a7aaacb48d950687ae9b77cfc5": "WMExR}WT9@RPELkCD4s:tRkCkWWVO@nlrsX9WBR*9toLr?oLn%Sg"
+        },
+        "Thumb": {
+          "b40270a5d5b552e63b97006704de890a": "WDA]{.-qIBj2$wxaS.kDi@wtnNRjJ-s.V[s.V@n#-rV?s;g5t6$$"
+        },
+        "Backdrop": {
+          "e316b71240f7f5ec746f153a5b099fd3": "W~MsAt$|fl-UocWF}@sTj@spa#oertR.aeNHR.xExtfkWEW;WqjI"
+        }
+      },
+      "ParentThumbItemId": "026193846bf3f910617f1878634f306a",
+      "ParentThumbImageTag": "b40270a5d5b552e63b97006704de890a",
+      "LocationType": "FileSystem",
+      "MediaType": "Video"
+    },
+    {
+      "Name": "ADVENTURE TIME EXTRAS",
+      "ServerId": "d740195c154247a795312b002acfa912",
+      "Id": "4ef40aa51b5e0e32d4277fe243b71a63",
+      "ExtraType": "Unknown",
+      "Container": "mkv",
+      "PremiereDate": "2026-01-11T16:34:20.0000000Z",
+      "OfficialRating": "FSK-6",
+      "ChannelId": null,
+      "CommunityRating": 8.494,
+      "RunTimeTicks": 27061030000,
+      "ProductionYear": 2026,
+      "IsFolder": false,
+      "Type": "Video",
+      "ParentLogoItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropImageTags": [
+        "e316b71240f7f5ec746f153a5b099fd3"
+      ],
+      "VideoType": "VideoFile",
+      "ImageTags": {
+        "Primary": "0627f53e06470874c5610e447ae7af4a"
+      },
+      "BackdropImageTags": [],
+      "ParentLogoImageTag": "02c8e1a7aaacb48d950687ae9b77cfc5",
+      "ImageBlurHashes": {
+        "Primary": {
+          "0627f53e06470874c5610e447ae7af4a": "NYR{#?-;_3_3D%?b~qj[fQt7ofj[M{WBxut7M{M{"
+        },
+        "Logo": {
+          "02c8e1a7aaacb48d950687ae9b77cfc5": "WMExR}WT9@RPELkCD4s:tRkCkWWVO@nlrsX9WBR*9toLr?oLn%Sg"
+        },
+        "Thumb": {
+          "b40270a5d5b552e63b97006704de890a": "WDA]{.-qIBj2$wxaS.kDi@wtnNRjJ-s.V[s.V@n#-rV?s;g5t6$$"
+        },
+        "Backdrop": {
+          "e316b71240f7f5ec746f153a5b099fd3": "W~MsAt$|fl-UocWF}@sTj@spa#oertR.aeNHR.xExtfkWEW;WqjI"
+        }
+      },
+      "ParentThumbItemId": "026193846bf3f910617f1878634f306a",
+      "ParentThumbImageTag": "b40270a5d5b552e63b97006704de890a",
+      "LocationType": "FileSystem",
+      "MediaType": "Video"
+    },
+    {
+      "Name": "ADVENTURE TIME EXTRAS",
+      "ServerId": "d740195c154247a795312b002acfa912",
+      "Id": "7b0db52d21e230a8bc0bc4539a8543b8",
+      "ExtraType": "Unknown",
+      "Container": "mkv",
+      "PremiereDate": "2026-01-11T16:40:29.0000000Z",
+      "OfficialRating": "FSK-6",
+      "ChannelId": null,
+      "CommunityRating": 8.494,
+      "RunTimeTicks": 8209860000,
+      "ProductionYear": 2026,
+      "IsFolder": false,
+      "Type": "Video",
+      "ParentLogoItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropImageTags": [
+        "e316b71240f7f5ec746f153a5b099fd3"
+      ],
+      "VideoType": "VideoFile",
+      "ImageTags": {
+        "Primary": "3c7548d49dacddb1e2f0866b61caa02b"
+      },
+      "BackdropImageTags": [],
+      "ParentLogoImageTag": "02c8e1a7aaacb48d950687ae9b77cfc5",
+      "ImageBlurHashes": {
+        "Primary": {
+          "3c7548d49dacddb1e2f0866b61caa02b": "NC7wg9%30e9[-p-BbcWXWqt7w^aKsjn%XAX9V@nh"
+        },
+        "Logo": {
+          "02c8e1a7aaacb48d950687ae9b77cfc5": "WMExR}WT9@RPELkCD4s:tRkCkWWVO@nlrsX9WBR*9toLr?oLn%Sg"
+        },
+        "Thumb": {
+          "b40270a5d5b552e63b97006704de890a": "WDA]{.-qIBj2$wxaS.kDi@wtnNRjJ-s.V[s.V@n#-rV?s;g5t6$$"
+        },
+        "Backdrop": {
+          "e316b71240f7f5ec746f153a5b099fd3": "W~MsAt$|fl-UocWF}@sTj@spa#oertR.aeNHR.xExtfkWEW;WqjI"
+        }
+      },
+      "ParentThumbItemId": "026193846bf3f910617f1878634f306a",
+      "ParentThumbImageTag": "b40270a5d5b552e63b97006704de890a",
+      "LocationType": "FileSystem",
+      "MediaType": "Video"
+    }
+  ],
+  "TotalRecordCount": 5,
+  "StartIndex": 0
+}

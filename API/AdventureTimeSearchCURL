@@ -1,0 +1,1 @@
+curl -G https://jellyfin.root.adrean.eu/Items -H "X-Emby-Token: c5d2356a93834aa5bba1de582eb1ecc0" --data-urlencode "searchTerm=Adventure Time" -d "limit=3" -d "recursive=true" -d "IncludeItemTypes=Series"

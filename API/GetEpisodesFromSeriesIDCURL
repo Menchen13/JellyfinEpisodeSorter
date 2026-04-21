@@ -1,0 +1,1 @@
+curl -G https://jellyfin.root.adrean.eu/Items -H "X-Emby-Token: c5d2356a93834aa5bba1de582eb1ecc0" -d "parentId=026193846bf3f910617f1878634f306a" -d "limit=10" -d "recursive=true" -d "IncludeItemTypes=Episode"

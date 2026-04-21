@@ -1,0 +1,527 @@
+{
+  "Items": [
+    {
+      "Name": "The Enchiridion!",
+      "ServerId": "d740195c154247a795312b002acfa912",
+      "Id": "764d68737212c54fec655863ae9c96ed",
+      "HasSubtitles": true,
+      "Container": "mkv",
+      "PremiereDate": "2010-04-04T22:00:00.0000000Z",
+      "ChannelId": null,
+      "CommunityRating": 6.6,
+      "RunTimeTicks": 7132120000,
+      "AspectRatio": "",
+      "ProductionYear": 2010,
+      "IndexNumber": 1,
+      "ParentIndexNumber": 1,
+      "IsFolder": false,
+      "Type": "Episode",
+      "ParentLogoItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropImageTags": [
+        "e316b71240f7f5ec746f153a5b099fd3"
+      ],
+      "SeriesName": "Adventure Time - Abenteuerzeit mit Finn und Jake",
+      "SeriesId": "026193846bf3f910617f1878634f306a",
+      "SeasonId": "b7a1bd178672f559ce36517f9d91613a",
+      "SeriesPrimaryImageTag": "1f52bbebd1bc76ea1828ca5a89fb0af7",
+      "SeasonName": "Staffel 1",
+      "VideoType": "VideoFile",
+      "ImageTags": {
+        "Primary": "3896f054750f4df0d096b1de654aa3ed"
+      },
+      "BackdropImageTags": [],
+      "ParentLogoImageTag": "02c8e1a7aaacb48d950687ae9b77cfc5",
+      "ImageBlurHashes": {
+        "Primary": {
+          "3896f054750f4df0d096b1de654aa3ed": "WBBM_QT1Io%MNf=_4TMxRjs+NGR.9axt%Mj]n$I:-pxuIoE2%2xZ",
+          "1f52bbebd1bc76ea1828ca5a89fb0af7": "dTJI|d-:u6%%TzNFxZofJVNfn2rp-;s8WBOF1lxuNzNg"
+        },
+        "Logo": {
+          "02c8e1a7aaacb48d950687ae9b77cfc5": "WMExR}WT9@RPELkCD4s:tRkCkWWVO@nlrsX9WBR*9toLr?oLn%Sg"
+        },
+        "Thumb": {
+          "b40270a5d5b552e63b97006704de890a": "WDA]{.-qIBj2$wxaS.kDi@wtnNRjJ-s.V[s.V@n#-rV?s;g5t6$$"
+        },
+        "Backdrop": {
+          "e316b71240f7f5ec746f153a5b099fd3": "W~MsAt$|fl-UocWF}@sTj@spa#oertR.aeNHR.xExtfkWEW;WqjI"
+        }
+      },
+      "ParentThumbItemId": "026193846bf3f910617f1878634f306a",
+      "ParentThumbImageTag": "b40270a5d5b552e63b97006704de890a",
+      "LocationType": "FileSystem",
+      "MediaType": "Video"
+    },
+    {
+      "Name": "Evicted!",
+      "ServerId": "d740195c154247a795312b002acfa912",
+      "Id": "f962d726e9adeb2d2bb6f5e415eb828c",
+      "HasSubtitles": true,
+      "Container": "mkv",
+      "PremiereDate": "2010-04-04T22:00:00.0000000Z",
+      "ChannelId": null,
+      "CommunityRating": 6.6,
+      "RunTimeTicks": 7120780000,
+      "AspectRatio": "",
+      "ProductionYear": 2010,
+      "IndexNumber": 2,
+      "ParentIndexNumber": 1,
+      "IsFolder": false,
+      "Type": "Episode",
+      "ParentLogoItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropImageTags": [
+        "e316b71240f7f5ec746f153a5b099fd3"
+      ],
+      "SeriesName": "Adventure Time - Abenteuerzeit mit Finn und Jake",
+      "SeriesId": "026193846bf3f910617f1878634f306a",
+      "SeasonId": "b7a1bd178672f559ce36517f9d91613a",
+      "SeriesPrimaryImageTag": "1f52bbebd1bc76ea1828ca5a89fb0af7",
+      "SeasonName": "Staffel 1",
+      "VideoType": "VideoFile",
+      "ImageTags": {
+        "Primary": "aecc8083f2926578cae13e3db1492263"
+      },
+      "BackdropImageTags": [],
+      "ParentLogoImageTag": "02c8e1a7aaacb48d950687ae9b77cfc5",
+      "ImageBlurHashes": {
+        "Primary": {
+          "aecc8083f2926578cae13e3db1492263": "WBBM_QT1Io%MNf=_4TMxRjs+NGR.9axt%Mj]n$I:-pxuIoE2%2xZ",
+          "1f52bbebd1bc76ea1828ca5a89fb0af7": "dTJI|d-:u6%%TzNFxZofJVNfn2rp-;s8WBOF1lxuNzNg"
+        },
+        "Logo": {
+          "02c8e1a7aaacb48d950687ae9b77cfc5": "WMExR}WT9@RPELkCD4s:tRkCkWWVO@nlrsX9WBR*9toLr?oLn%Sg"
+        },
+        "Thumb": {
+          "b40270a5d5b552e63b97006704de890a": "WDA]{.-qIBj2$wxaS.kDi@wtnNRjJ-s.V[s.V@n#-rV?s;g5t6$$"
+        },
+        "Backdrop": {
+          "e316b71240f7f5ec746f153a5b099fd3": "W~MsAt$|fl-UocWF}@sTj@spa#oertR.aeNHR.xExtfkWEW;WqjI"
+        }
+      },
+      "ParentThumbItemId": "026193846bf3f910617f1878634f306a",
+      "ParentThumbImageTag": "b40270a5d5b552e63b97006704de890a",
+      "LocationType": "FileSystem",
+      "MediaType": "Video"
+    },
+    {
+      "Name": "Prisoners of Love",
+      "ServerId": "d740195c154247a795312b002acfa912",
+      "Id": "5fff254f25ee6ef4029123225fd5bb63",
+      "HasSubtitles": true,
+      "Container": "mkv",
+      "PremiereDate": "2010-04-04T22:00:00.0000000Z",
+      "ChannelId": null,
+      "CommunityRating": 6.6,
+      "RunTimeTicks": 7198520000,
+      "AspectRatio": "",
+      "ProductionYear": 2010,
+      "IndexNumber": 3,
+      "ParentIndexNumber": 1,
+      "IsFolder": false,
+      "Type": "Episode",
+      "ParentLogoItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropImageTags": [
+        "e316b71240f7f5ec746f153a5b099fd3"
+      ],
+      "SeriesName": "Adventure Time - Abenteuerzeit mit Finn und Jake",
+      "SeriesId": "026193846bf3f910617f1878634f306a",
+      "SeasonId": "b7a1bd178672f559ce36517f9d91613a",
+      "SeriesPrimaryImageTag": "1f52bbebd1bc76ea1828ca5a89fb0af7",
+      "SeasonName": "Staffel 1",
+      "VideoType": "VideoFile",
+      "ImageTags": {
+        "Primary": "e95f681a25025bebaaef1dd5a15ba1a5"
+      },
+      "BackdropImageTags": [],
+      "ParentLogoImageTag": "02c8e1a7aaacb48d950687ae9b77cfc5",
+      "ImageBlurHashes": {
+        "Primary": {
+          "e95f681a25025bebaaef1dd5a15ba1a5": "WBBM_QT1Io%MNf=_4TMxRjs+NGR.9axt%Mj]n$I:-pxuIoE2%2xZ",
+          "1f52bbebd1bc76ea1828ca5a89fb0af7": "dTJI|d-:u6%%TzNFxZofJVNfn2rp-;s8WBOF1lxuNzNg"
+        },
+        "Logo": {
+          "02c8e1a7aaacb48d950687ae9b77cfc5": "WMExR}WT9@RPELkCD4s:tRkCkWWVO@nlrsX9WBR*9toLr?oLn%Sg"
+        },
+        "Thumb": {
+          "b40270a5d5b552e63b97006704de890a": "WDA]{.-qIBj2$wxaS.kDi@wtnNRjJ-s.V[s.V@n#-rV?s;g5t6$$"
+        },
+        "Backdrop": {
+          "e316b71240f7f5ec746f153a5b099fd3": "W~MsAt$|fl-UocWF}@sTj@spa#oertR.aeNHR.xExtfkWEW;WqjI"
+        }
+      },
+      "ParentThumbItemId": "026193846bf3f910617f1878634f306a",
+      "ParentThumbImageTag": "b40270a5d5b552e63b97006704de890a",
+      "LocationType": "FileSystem",
+      "MediaType": "Video"
+    },
+    {
+      "Name": "Freaky City",
+      "ServerId": "d740195c154247a795312b002acfa912",
+      "Id": "552ee07428469f3c19ec75a0cb3b2861",
+      "HasSubtitles": true,
+      "Container": "mkv",
+      "PremiereDate": "2010-04-04T22:00:00.0000000Z",
+      "ChannelId": null,
+      "CommunityRating": 6.6,
+      "RunTimeTicks": 7191849999,
+      "AspectRatio": "",
+      "ProductionYear": 2010,
+      "IndexNumber": 4,
+      "ParentIndexNumber": 1,
+      "IsFolder": false,
+      "Type": "Episode",
+      "ParentLogoItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropImageTags": [
+        "e316b71240f7f5ec746f153a5b099fd3"
+      ],
+      "SeriesName": "Adventure Time - Abenteuerzeit mit Finn und Jake",
+      "SeriesId": "026193846bf3f910617f1878634f306a",
+      "SeasonId": "b7a1bd178672f559ce36517f9d91613a",
+      "SeriesPrimaryImageTag": "1f52bbebd1bc76ea1828ca5a89fb0af7",
+      "SeasonName": "Staffel 1",
+      "VideoType": "VideoFile",
+      "ImageTags": {
+        "Primary": "1f2a2e3768b2782cffd6579527b77c56"
+      },
+      "BackdropImageTags": [],
+      "ParentLogoImageTag": "02c8e1a7aaacb48d950687ae9b77cfc5",
+      "ImageBlurHashes": {
+        "Primary": {
+          "1f2a2e3768b2782cffd6579527b77c56": "WBBM_QT1Io%MNf=_4TMxRjs+NGR.9axt%Mj]n$I:-pxuIoE2%2xZ",
+          "1f52bbebd1bc76ea1828ca5a89fb0af7": "dTJI|d-:u6%%TzNFxZofJVNfn2rp-;s8WBOF1lxuNzNg"
+        },
+        "Logo": {
+          "02c8e1a7aaacb48d950687ae9b77cfc5": "WMExR}WT9@RPELkCD4s:tRkCkWWVO@nlrsX9WBR*9toLr?oLn%Sg"
+        },
+        "Thumb": {
+          "b40270a5d5b552e63b97006704de890a": "WDA]{.-qIBj2$wxaS.kDi@wtnNRjJ-s.V[s.V@n#-rV?s;g5t6$$"
+        },
+        "Backdrop": {
+          "e316b71240f7f5ec746f153a5b099fd3": "W~MsAt$|fl-UocWF}@sTj@spa#oertR.aeNHR.xExtfkWEW;WqjI"
+        }
+      },
+      "ParentThumbItemId": "026193846bf3f910617f1878634f306a",
+      "ParentThumbImageTag": "b40270a5d5b552e63b97006704de890a",
+      "LocationType": "FileSystem",
+      "MediaType": "Video"
+    },
+    {
+      "Name": "Ricardio the Heart Guy",
+      "ServerId": "d740195c154247a795312b002acfa912",
+      "Id": "d55a152e6620a34f106b3886b74d7806",
+      "HasSubtitles": true,
+      "Container": "mkv",
+      "PremiereDate": "2010-04-04T22:00:00.0000000Z",
+      "ChannelId": null,
+      "CommunityRating": 6.6,
+      "RunTimeTicks": 7154810000,
+      "AspectRatio": "",
+      "ProductionYear": 2010,
+      "IndexNumber": 5,
+      "ParentIndexNumber": 1,
+      "IsFolder": false,
+      "Type": "Episode",
+      "ParentLogoItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropImageTags": [
+        "e316b71240f7f5ec746f153a5b099fd3"
+      ],
+      "SeriesName": "Adventure Time - Abenteuerzeit mit Finn und Jake",
+      "SeriesId": "026193846bf3f910617f1878634f306a",
+      "SeasonId": "b7a1bd178672f559ce36517f9d91613a",
+      "SeriesPrimaryImageTag": "1f52bbebd1bc76ea1828ca5a89fb0af7",
+      "SeasonName": "Staffel 1",
+      "VideoType": "VideoFile",
+      "ImageTags": {
+        "Primary": "b3080414c3a599d60524d4963d233a97"
+      },
+      "BackdropImageTags": [],
+      "ParentLogoImageTag": "02c8e1a7aaacb48d950687ae9b77cfc5",
+      "ImageBlurHashes": {
+        "Primary": {
+          "b3080414c3a599d60524d4963d233a97": "WBBM_QT1Io%MNf=_4TMxRjs+NGR.9axt%Mj]n$I:-pxuIoE2%2xZ",
+          "1f52bbebd1bc76ea1828ca5a89fb0af7": "dTJI|d-:u6%%TzNFxZofJVNfn2rp-;s8WBOF1lxuNzNg"
+        },
+        "Logo": {
+          "02c8e1a7aaacb48d950687ae9b77cfc5": "WMExR}WT9@RPELkCD4s:tRkCkWWVO@nlrsX9WBR*9toLr?oLn%Sg"
+        },
+        "Thumb": {
+          "b40270a5d5b552e63b97006704de890a": "WDA]{.-qIBj2$wxaS.kDi@wtnNRjJ-s.V[s.V@n#-rV?s;g5t6$$"
+        },
+        "Backdrop": {
+          "e316b71240f7f5ec746f153a5b099fd3": "W~MsAt$|fl-UocWF}@sTj@spa#oertR.aeNHR.xExtfkWEW;WqjI"
+        }
+      },
+      "ParentThumbItemId": "026193846bf3f910617f1878634f306a",
+      "ParentThumbImageTag": "b40270a5d5b552e63b97006704de890a",
+      "LocationType": "FileSystem",
+      "MediaType": "Video"
+    },
+    {
+      "Name": "Panik auf der Pyjamaparty",
+      "ServerId": "d740195c154247a795312b002acfa912",
+      "Id": "b4b5490f7c93b0a94d47171d29f3eeb8",
+      "HasSubtitles": true,
+      "Container": "mkv",
+      "PremiereDate": "2010-04-04T22:00:00.0000000Z",
+      "ChannelId": null,
+      "CommunityRating": 6.6,
+      "RunTimeTicks": 7118440000,
+      "AspectRatio": "",
+      "ProductionYear": 2010,
+      "IndexNumber": 6,
+      "ParentIndexNumber": 1,
+      "IsFolder": false,
+      "Type": "Episode",
+      "ParentLogoItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropImageTags": [
+        "e316b71240f7f5ec746f153a5b099fd3"
+      ],
+      "SeriesName": "Adventure Time - Abenteuerzeit mit Finn und Jake",
+      "SeriesId": "026193846bf3f910617f1878634f306a",
+      "SeasonId": "b7a1bd178672f559ce36517f9d91613a",
+      "SeriesPrimaryImageTag": "1f52bbebd1bc76ea1828ca5a89fb0af7",
+      "SeasonName": "Staffel 1",
+      "VideoType": "VideoFile",
+      "ImageTags": {
+        "Primary": "5494152d31952de73242638d2fef66ab"
+      },
+      "BackdropImageTags": [],
+      "ParentLogoImageTag": "02c8e1a7aaacb48d950687ae9b77cfc5",
+      "ImageBlurHashes": {
+        "Primary": {
+          "5494152d31952de73242638d2fef66ab": "WBBM_QT1Io%MNf=_4TMxRjs+NGR.9axt%Mj]n$I:-pxuIoE2%2xZ",
+          "1f52bbebd1bc76ea1828ca5a89fb0af7": "dTJI|d-:u6%%TzNFxZofJVNfn2rp-;s8WBOF1lxuNzNg"
+        },
+        "Logo": {
+          "02c8e1a7aaacb48d950687ae9b77cfc5": "WMExR}WT9@RPELkCD4s:tRkCkWWVO@nlrsX9WBR*9toLr?oLn%Sg"
+        },
+        "Thumb": {
+          "b40270a5d5b552e63b97006704de890a": "WDA]{.-qIBj2$wxaS.kDi@wtnNRjJ-s.V[s.V@n#-rV?s;g5t6$$"
+        },
+        "Backdrop": {
+          "e316b71240f7f5ec746f153a5b099fd3": "W~MsAt$|fl-UocWF}@sTj@spa#oertR.aeNHR.xExtfkWEW;WqjI"
+        }
+      },
+      "ParentThumbItemId": "026193846bf3f910617f1878634f306a",
+      "ParentThumbImageTag": "b40270a5d5b552e63b97006704de890a",
+      "LocationType": "FileSystem",
+      "MediaType": "Video"
+    },
+    {
+      "Name": "Memories of Boom Boom Mountain",
+      "ServerId": "d740195c154247a795312b002acfa912",
+      "Id": "2ce3cca5a9de4b23336402fd37d60df6",
+      "HasSubtitles": true,
+      "Container": "mkv",
+      "PremiereDate": "2010-04-04T22:00:00.0000000Z",
+      "ChannelId": null,
+      "CommunityRating": 6.6,
+      "RunTimeTicks": 7134790000,
+      "AspectRatio": "",
+      "ProductionYear": 2010,
+      "IndexNumber": 7,
+      "ParentIndexNumber": 1,
+      "IsFolder": false,
+      "Type": "Episode",
+      "ParentLogoItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropImageTags": [
+        "e316b71240f7f5ec746f153a5b099fd3"
+      ],
+      "SeriesName": "Adventure Time - Abenteuerzeit mit Finn und Jake",
+      "SeriesId": "026193846bf3f910617f1878634f306a",
+      "SeasonId": "b7a1bd178672f559ce36517f9d91613a",
+      "SeriesPrimaryImageTag": "1f52bbebd1bc76ea1828ca5a89fb0af7",
+      "SeasonName": "Staffel 1",
+      "VideoType": "VideoFile",
+      "ImageTags": {
+        "Primary": "a3e3b371559a58f364644e3d74597738"
+      },
+      "BackdropImageTags": [],
+      "ParentLogoImageTag": "02c8e1a7aaacb48d950687ae9b77cfc5",
+      "ImageBlurHashes": {
+        "Primary": {
+          "a3e3b371559a58f364644e3d74597738": "WBBM_QT1Io%MNf=_4TMxRjs+NGR.9axt%Mj]n$I:-pxuIoE2%2xZ",
+          "1f52bbebd1bc76ea1828ca5a89fb0af7": "dTJI|d-:u6%%TzNFxZofJVNfn2rp-;s8WBOF1lxuNzNg"
+        },
+        "Logo": {
+          "02c8e1a7aaacb48d950687ae9b77cfc5": "WMExR}WT9@RPELkCD4s:tRkCkWWVO@nlrsX9WBR*9toLr?oLn%Sg"
+        },
+        "Thumb": {
+          "b40270a5d5b552e63b97006704de890a": "WDA]{.-qIBj2$wxaS.kDi@wtnNRjJ-s.V[s.V@n#-rV?s;g5t6$$"
+        },
+        "Backdrop": {
+          "e316b71240f7f5ec746f153a5b099fd3": "W~MsAt$|fl-UocWF}@sTj@spa#oertR.aeNHR.xExtfkWEW;WqjI"
+        }
+      },
+      "ParentThumbItemId": "026193846bf3f910617f1878634f306a",
+      "ParentThumbImageTag": "b40270a5d5b552e63b97006704de890a",
+      "LocationType": "FileSystem",
+      "MediaType": "Video"
+    },
+    {
+      "Name": "The Jiggler",
+      "ServerId": "d740195c154247a795312b002acfa912",
+      "Id": "dd7ccd518cd8cc06e402cc32fd5c7faf",
+      "HasSubtitles": true,
+      "Container": "mkv",
+      "PremiereDate": "2010-04-04T22:00:00.0000000Z",
+      "ChannelId": null,
+      "CommunityRating": 6.6,
+      "RunTimeTicks": 7018670000,
+      "AspectRatio": "",
+      "ProductionYear": 2010,
+      "IndexNumber": 8,
+      "ParentIndexNumber": 1,
+      "IsFolder": false,
+      "Type": "Episode",
+      "ParentLogoItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropImageTags": [
+        "e316b71240f7f5ec746f153a5b099fd3"
+      ],
+      "SeriesName": "Adventure Time - Abenteuerzeit mit Finn und Jake",
+      "SeriesId": "026193846bf3f910617f1878634f306a",
+      "SeasonId": "b7a1bd178672f559ce36517f9d91613a",
+      "SeriesPrimaryImageTag": "1f52bbebd1bc76ea1828ca5a89fb0af7",
+      "SeasonName": "Staffel 1",
+      "VideoType": "VideoFile",
+      "ImageTags": {
+        "Primary": "22c2e481db71704157d0c7a076036bb4"
+      },
+      "BackdropImageTags": [],
+      "ParentLogoImageTag": "02c8e1a7aaacb48d950687ae9b77cfc5",
+      "ImageBlurHashes": {
+        "Primary": {
+          "22c2e481db71704157d0c7a076036bb4": "WBBM_QT1Io%MNf=_4TMxRjs+NGR.9axt%Mj]n$I:-pxuIoE2%2xZ",
+          "1f52bbebd1bc76ea1828ca5a89fb0af7": "dTJI|d-:u6%%TzNFxZofJVNfn2rp-;s8WBOF1lxuNzNg"
+        },
+        "Logo": {
+          "02c8e1a7aaacb48d950687ae9b77cfc5": "WMExR}WT9@RPELkCD4s:tRkCkWWVO@nlrsX9WBR*9toLr?oLn%Sg"
+        },
+        "Thumb": {
+          "b40270a5d5b552e63b97006704de890a": "WDA]{.-qIBj2$wxaS.kDi@wtnNRjJ-s.V[s.V@n#-rV?s;g5t6$$"
+        },
+        "Backdrop": {
+          "e316b71240f7f5ec746f153a5b099fd3": "W~MsAt$|fl-UocWF}@sTj@spa#oertR.aeNHR.xExtfkWEW;WqjI"
+        }
+      },
+      "ParentThumbItemId": "026193846bf3f910617f1878634f306a",
+      "ParentThumbImageTag": "b40270a5d5b552e63b97006704de890a",
+      "LocationType": "FileSystem",
+      "MediaType": "Video"
+    },
+    {
+      "Name": "City of Thieves",
+      "ServerId": "d740195c154247a795312b002acfa912",
+      "Id": "a587cac83aae594541be3c706813e527",
+      "HasSubtitles": true,
+      "Container": "mkv",
+      "PremiereDate": "2010-04-04T22:00:00.0000000Z",
+      "ChannelId": null,
+      "CommunityRating": 6.6,
+      "RunTimeTicks": 7142130000,
+      "AspectRatio": "",
+      "ProductionYear": 2010,
+      "IndexNumber": 9,
+      "ParentIndexNumber": 1,
+      "IsFolder": false,
+      "Type": "Episode",
+      "ParentLogoItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropImageTags": [
+        "e316b71240f7f5ec746f153a5b099fd3"
+      ],
+      "SeriesName": "Adventure Time - Abenteuerzeit mit Finn und Jake",
+      "SeriesId": "026193846bf3f910617f1878634f306a",
+      "SeasonId": "b7a1bd178672f559ce36517f9d91613a",
+      "SeriesPrimaryImageTag": "1f52bbebd1bc76ea1828ca5a89fb0af7",
+      "SeasonName": "Staffel 1",
+      "VideoType": "VideoFile",
+      "ImageTags": {
+        "Primary": "2396d2ef70e23093845b215333e0d00e"
+      },
+      "BackdropImageTags": [],
+      "ParentLogoImageTag": "02c8e1a7aaacb48d950687ae9b77cfc5",
+      "ImageBlurHashes": {
+        "Primary": {
+          "2396d2ef70e23093845b215333e0d00e": "WBBM_QT1Io%MNf=_4TMxRjs+NGR.9axt%Mj]n$I:-pxuIoE2%2xZ",
+          "1f52bbebd1bc76ea1828ca5a89fb0af7": "dTJI|d-:u6%%TzNFxZofJVNfn2rp-;s8WBOF1lxuNzNg"
+        },
+        "Logo": {
+          "02c8e1a7aaacb48d950687ae9b77cfc5": "WMExR}WT9@RPELkCD4s:tRkCkWWVO@nlrsX9WBR*9toLr?oLn%Sg"
+        },
+        "Thumb": {
+          "b40270a5d5b552e63b97006704de890a": "WDA]{.-qIBj2$wxaS.kDi@wtnNRjJ-s.V[s.V@n#-rV?s;g5t6$$"
+        },
+        "Backdrop": {
+          "e316b71240f7f5ec746f153a5b099fd3": "W~MsAt$|fl-UocWF}@sTj@spa#oertR.aeNHR.xExtfkWEW;WqjI"
+        }
+      },
+      "ParentThumbItemId": "026193846bf3f910617f1878634f306a",
+      "ParentThumbImageTag": "b40270a5d5b552e63b97006704de890a",
+      "LocationType": "FileSystem",
+      "MediaType": "Video"
+    },
+    {
+      "Name": "When Wedding Bells Thaw",
+      "ServerId": "d740195c154247a795312b002acfa912",
+      "Id": "e69a1a0b30e512eae5eb5e82dfa7d707",
+      "HasSubtitles": true,
+      "Container": "mkv",
+      "PremiereDate": "2010-04-04T22:00:00.0000000Z",
+      "ChannelId": null,
+      "CommunityRating": 6.6,
+      "RunTimeTicks": 7138460000,
+      "AspectRatio": "",
+      "ProductionYear": 2010,
+      "IndexNumber": 10,
+      "ParentIndexNumber": 1,
+      "IsFolder": false,
+      "Type": "Episode",
+      "ParentLogoItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropItemId": "026193846bf3f910617f1878634f306a",
+      "ParentBackdropImageTags": [
+        "e316b71240f7f5ec746f153a5b099fd3"
+      ],
+      "SeriesName": "Adventure Time - Abenteuerzeit mit Finn und Jake",
+      "SeriesId": "026193846bf3f910617f1878634f306a",
+      "SeasonId": "b7a1bd178672f559ce36517f9d91613a",
+      "SeriesPrimaryImageTag": "1f52bbebd1bc76ea1828ca5a89fb0af7",
+      "SeasonName": "Staffel 1",
+      "VideoType": "VideoFile",
+      "ImageTags": {
+        "Primary": "0b2c9b7a2a490db35ea8798657aa3510"
+      },
+      "BackdropImageTags": [],
+      "ParentLogoImageTag": "02c8e1a7aaacb48d950687ae9b77cfc5",
+      "ImageBlurHashes": {
+        "Primary": {
+          "0b2c9b7a2a490db35ea8798657aa3510": "WBBM_QT1Io%MNf=_4TMxRjs+NGR.9axt%Mj]n$I:-pxuIoE2%2xZ",
+          "1f52bbebd1bc76ea1828ca5a89fb0af7": "dTJI|d-:u6%%TzNFxZofJVNfn2rp-;s8WBOF1lxuNzNg"
+        },
+        "Logo": {
+          "02c8e1a7aaacb48d950687ae9b77cfc5": "WMExR}WT9@RPELkCD4s:tRkCkWWVO@nlrsX9WBR*9toLr?oLn%Sg"
+        },
+        "Thumb": {
+          "b40270a5d5b552e63b97006704de890a": "WDA]{.-qIBj2$wxaS.kDi@wtnNRjJ-s.V[s.V@n#-rV?s;g5t6$$"
+        },
+        "Backdrop": {
+          "e316b71240f7f5ec746f153a5b099fd3": "W~MsAt$|fl-UocWF}@sTj@spa#oertR.aeNHR.xExtfkWEW;WqjI"
+        }
+      },
+      "ParentThumbItemId": "026193846bf3f910617f1878634f306a",
+      "ParentThumbImageTag": "b40270a5d5b552e63b97006704de890a",
+      "LocationType": "FileSystem",
+      "MediaType": "Video"
+    }
+  ],
+  "TotalRecordCount": 310,
+  "StartIndex": 0
+}
+

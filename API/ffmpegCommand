@@ -1,0 +1,2 @@
+ffmpeg -hide_banner -loglevel error -ss 00:00:26 -i "https://jellyfin.root.adrean.eu/Videos/e69a1a0b30e512eae5eb5e82dfa7d707/stream?static=true" -frames:v 1 -q:v
+2 test_titlecard.jpg
