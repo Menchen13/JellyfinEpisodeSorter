@@ -2,6 +2,7 @@
 
 #include <concepts>
 #include <string>
+#include <utility>
 #include <vector>
 
 #include <nlohmann/json.hpp>
@@ -11,7 +12,7 @@
 using nlohmann::json;
 
 // concept matching json::parse template input from
-// https://json.nlohmann.me/api/basic_json/parse/ to guard function parsing
+// https://json.nlohmann.me/api/basic_json/parse/ to guard functions parsing
 // their input (All Gemini)
 template <typename T>
 concept JsonParsableInput =

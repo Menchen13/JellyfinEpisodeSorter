@@ -24,6 +24,14 @@ struct Episode {
   bool operator==(const Episode &) const = default;
 };
 
+struct OcrResult {
+    std::string jellyfinEpisodeId;
+    std::string extractedTitle;
+    unsigned int matchedSeason;
+    unsigned int matchedEpisodeNum;
+    bool success;
+};
+
 inline std::ostream &operator<<(std::ostream &os, const Series &series) {
   return os << "Series{id: \"" << series.id << "\", name: \"" << series.name
             << "\"}";

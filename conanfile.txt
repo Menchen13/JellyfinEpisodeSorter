@@ -2,6 +2,8 @@
 cpr/1.14.2
 nlohmann_json/3.12.0
 gtest/1.17.0
+opencv/4.13.0
+cppcodec/0.2
 
 [generators]
 CMakeDeps
@@ -10,3 +12,36 @@ CMakeToolchain
 [options]
 cpr/*:signal=False #signal doesnt play with multithread from what i gather
 gtest/*:shared=True #smaller test binaries
+
+opencv/*:shared=True
+opencv/*:videoio=True
+opencv/*:with_ffmpeg=True
+opencv/*:imgcodecs=True
+opencv/*:with_jpeg=libjpeg
+opencv/*:imgproc=True
+
+# --- ALLES ANDERE DEAKTIVIEREN ---
+opencv/*:dnn=False
+opencv/*:ml=False
+opencv/*:highgui=False
+opencv/*:calib3d=False
+opencv/*:features2d=False
+opencv/*:objdetect=False
+opencv/*:photo=False
+opencv/*:stitching=False
+opencv/*:gapi=False
+opencv/*:flann=False
+opencv/*:with_qt=False
+opencv/*:with_gtk=False
+opencv/*:with_wayland=False
+opencv/*:with_tiff=False
+opencv/*:with_webp=False
+opencv/*:with_png=False
+opencv/*:with_openexr=False
+
+# --- FFmpeg Diet Options ---
+ffmpeg/*:with_pulse=False
+ffmpeg/*:with_alsa=False
+ffmpeg/*:with_xcb=False
+ffmpeg/*:with_vdpau=False
+ffmpeg/*:with_vaapi=False
