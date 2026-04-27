@@ -2,14 +2,15 @@
 #include <stdexcept>
 #include <string_view>
 
-#include <cpr/body.h>
 #include <cpr/api.h>
+#include <cpr/body.h>
 #include <cpr/cprtypes.h>
 #include <cpr/parameters.h>
 #include <cpr/response.h>
 #include <nlohmann/json.hpp>
 
 #include "apiClient.hpp"
+#include "ocr.hpp"
 
 using nlohmann::json;
 
@@ -63,7 +64,7 @@ std::string GoogleOCR::base64ToTitle(const std::string &base64,
                                      const std::string &googleApiKey) {
   // send request to googleOCR API
   cpr::Url ApiEndpoint("https://generativelanguage.googleapis.com/v1beta/"
-                          "models/gemini-2.5-flash-lite:generateContent");
+                       "models/gemini-2.5-flash-lite:generateContent");
 
   const auto headers = cpr::Header{{"x-goog-api-key", googleApiKey},
                                    {"Content-Type", "application/json"}};
@@ -91,14 +92,23 @@ std::string GoogleOCR::base64ToTitle(const std::string &base64,
   if (r.error) {
     throw std::runtime_error(
         std::format("Network Error: {}\nIn base64ToTitle", r.error.message));
+
+  } else if (r.status_code == 503 || r.status_code == 429) {
+    throw RateLimitException();
+
   } else if (r.status_code >= 400) {
     throw std::runtime_error(
         std::format("HTTP POST Error: {}\nIn base64ToTitle", r.status_line));
   }
 
-
-  // parse response and return text 
+  // parse response and return text
   json j = json::parse(r.text);
-  
-  return j.at("candidates").at(0).at("content").at("parts").at(0).at("text").get<std::string>();
+
+  return j.at("candidates")
+      .at(0)
+      .at("content")
+      .at("parts")
+      .at(0)
+      .at("text")
+      .get<std::string>();
 }

@@ -25,11 +25,8 @@ struct Episode {
 };
 
 struct OcrResult {
-    std::string jellyfinEpisodeId;
-    std::string extractedTitle;
-    unsigned int matchedSeason;
-    unsigned int matchedEpisodeNum;
-    bool success;
+  std::string jellyfinEpisodeId;
+  std::string extractedTitle;
 };
 
 inline std::ostream &operator<<(std::ostream &os, const Series &series) {
@@ -42,6 +39,11 @@ inline std::ostream &operator<<(std::ostream &os, const Episode &episode) {
             << "\", seasonId: \"" << episode.seasonId << "\", season: \""
             << episode.season << "\", episiodeNumber: \""
             << episode.episiodeNumber << "\"}";
+}
+
+inline std::ostream &operator<<(std::ostream &os, const OcrResult &OcrResult) {
+  return os << "OcrResult{jellyfinEpisodeId: \"" << OcrResult.jellyfinEpisodeId
+            << "\", extractedTitle \"" << OcrResult.extractedTitle << "\"}";
 }
 
 // *WARNING* Can throw some sort of json::exception
