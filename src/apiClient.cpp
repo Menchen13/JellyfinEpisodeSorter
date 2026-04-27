@@ -63,7 +63,7 @@ std::string GoogleOCR::base64ToTitle(const std::string &base64,
                                      const std::string &googleApiKey) {
   // send request to googleOCR API
   cpr::Url ApiEndpoint("https://generativelanguage.googleapis.com/v1beta/"
-                          "models/gemini-2.5-flash:generateContent");
+                          "models/gemini-2.5-flash-lite:generateContent");
 
   const auto headers = cpr::Header{{"x-goog-api-key", googleApiKey},
                                    {"Content-Type", "application/json"}};
