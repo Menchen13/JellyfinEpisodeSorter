@@ -12,8 +12,8 @@
 #include "ocr.hpp"
 
 std::expected<OcrResult, std::string>
-idToTitle(std::string_view url, std::string_view apiKey, std::string_view id,
-          std::string_view googleApiKey) noexcept {
+idToTitle(const std::string &url, const std::string &apiKey, const std::string &id,
+          const std::string &googleApiKey) noexcept {
 
   return std::unexpected<std::string>("WELP?");
   // catch cv::Exception, runtime_error

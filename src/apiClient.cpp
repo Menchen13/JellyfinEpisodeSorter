@@ -13,9 +13,9 @@
 
 using nlohmann::json;
 
-std::string jellyfin::fetchSeriesRaw(std::string_view url,
-                                     std::string_view searchString,
-                                     std::string_view apiKey) {
+std::string jellyfin::fetchSeriesRaw(const std::string &url,
+                                     const std::string &searchString,
+                                     const std::string &apiKey) {
 
   const cpr::Url itemApi = std::format("{}/Items", url);
 
@@ -36,9 +36,9 @@ std::string jellyfin::fetchSeriesRaw(std::string_view url,
   return r.text;
 }
 
-std::string jellyfin::fetchEpisodesRaw(std::string_view url,
-                                       std::string_view seriesId,
-                                       std::string_view apiKey) {
+std::string jellyfin::fetchEpisodesRaw(const std::string &url,
+                                       const std::string &seriesId,
+                                       const std::string &apiKey) {
 
   const cpr::Url itemApi = std::format("{}/Items", url);
 
@@ -59,8 +59,8 @@ std::string jellyfin::fetchEpisodesRaw(std::string_view url,
   return r.text;
 }
 
-std::string GoogleOCR::base64ToTitle(std::string_view base64,
-                                     std::string googleApiKey) {
+std::string GoogleOCR::base64ToTitle(const std::string &base64,
+                                     const std::string &googleApiKey) {
   // send request to googleOCR API
   cpr::Url ApiEndpoint("https://generativelanguage.googleapis.com/v1beta/"
                           "models/gemini-2.5-flash:generateContent");
