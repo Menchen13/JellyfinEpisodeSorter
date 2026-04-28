@@ -1,12 +1,7 @@
 #include <format>
 #include <stdexcept>
-#include <string_view>
 
-#include <cpr/api.h>
-#include <cpr/body.h>
-#include <cpr/cprtypes.h>
-#include <cpr/parameters.h>
-#include <cpr/response.h>
+#include <cpr/cpr.h>
 #include <nlohmann/json.hpp>
 
 #include "apiClient.hpp"
@@ -62,16 +57,21 @@ std::string jellyfin::fetchEpisodesRaw(const std::string &url,
 
 std::string GoogleOCR::base64ToTitle(const std::string &base64,
                                      const std::string &googleApiKey) {
-  // send request to googleOCR API
-  cpr::Url ApiEndpoint("https://generativelanguage.googleapis.com/v1beta/"
-                       "models/gemini-2.5-flash-lite:generateContent");
 
-  const auto headers = cpr::Header{{"x-goog-api-key", googleApiKey},
-                                   {"Content-Type", "application/json"}};
+  // one session for the all the calls to this function
+  // saves bunch of networking time (hopefully - never actually tested that)
+  // this requires a wrapper struct to configure the session-obj at creation
+  // time. this way when the static obj is created it is immediatly ready to
+  // roll
+  static OcrSessionConfig config(
+      "https://generativelanguage.googleapis.com/v1beta/"
+      "models/gemini-2.5-flash-lite:generateContent",
+      cpr::Header{{"x-goog-api-key", googleApiKey},
+                  {"Content-Type", "application/json"}});
 
   // Gemini made Gemini-prompt
   // OH THE IRONY
-  nlohmann::json payload = {
+  json payload = {
       {"contents",
        {{{"parts",
           {// Part 1: The Text Prompt
@@ -87,7 +87,8 @@ std::string GoogleOCR::base64ToTitle(const std::string &base64,
            {"temperature", 0.0} // 0.0 means "Be factual, don't be creative"
        }}};
 
-  cpr::Response r = cpr::Post(headers, ApiEndpoint, cpr::Body{payload.dump()});
+  config.session.SetBody(cpr::Body{payload.dump()});
+  cpr::Response r = config.session.Post();
 
   if (r.error) {
     throw std::runtime_error(
@@ -102,7 +103,7 @@ std::string GoogleOCR::base64ToTitle(const std::string &base64,
   }
 
   // parse response and return text
-  json j = json::parse(r.text);
+  const json j = json::parse(r.text);
 
   return j.at("candidates")
       .at(0)
@@ -111,4 +112,42 @@ std::string GoogleOCR::base64ToTitle(const std::string &base64,
       .at(0)
       .at("text")
       .get<std::string>();
+}
+
+std::string OllamaOCR::base64ToTitle(const std::string &base64,
+                                     const std::string &url) {
+
+  static OcrSessionConfig config(
+      url, cpr::Header{{"Content-Type", "application/json"}});
+
+  // could proably make model a parameter in case people wanna use something else
+  // but then again, if they can spin up anything in an ollama container,
+  // might as well spin this up real quick
+  json payload = {
+      {"model", "llama3.2-vision"},
+      {"prompt",
+       "Extract only the textual title of the episode from this image. The "
+       "text may be heavily stylized, hidden in the background, or written in "
+       "unusual fonts. Output ONLY the exact text of the title, with no "
+       "conversational filler, no punctuation unless it's in the title, and no "
+       "descriptions of the image."},
+      {"stream", false},
+      {"images", {base64}}};
+
+  config.session.SetBody(cpr::Body{payload.dump()});
+
+  cpr::Response r = config.session.Post();
+
+  if (r.error) {
+    throw std::runtime_error(
+        std::format("Network Error: {}\nIn base64ToTitle", r.error.message));
+
+  } else if (r.status_code >= 400) {
+    throw std::runtime_error(
+        std::format("HTTP POST Error: {}\nIn base64ToTitle", r.status_line));
+  }
+
+  const json j = json::parse(r.text);
+
+  return j.at("response").get<std::string>();
 }

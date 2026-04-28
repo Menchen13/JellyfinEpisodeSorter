@@ -13,14 +13,6 @@
 
 #include "ocr.hpp"
 
-std::expected<OcrResult, std::string>
-idToTitle(const std::string &url, const std::string &apiKey,
-          const std::string &id, const std::string &googleApiKey) noexcept {
-
-  return std::unexpected<std::string>("WELP?");
-  // catch cv::Exception, runtime_error
-}
-
 cv::Mat getTitlecard(const std::string &streamUrl,
                      const unsigned int &targetSecond) {
   cv::VideoCapture video;
@@ -80,7 +72,7 @@ std::vector<OcrResult> idToTitlePipeline(const std::vector<Episode> &episodes,
 
       std::string base64 = processTitlecard(frame);
 
-      // if this is the googleAPI it may throw <RATELIMIT Exception> TODO
+      // if this is the googleAPI it may throw RateLimitException
       std::string title = ocrCallback(base64);
 
       results.emplace_back(episodes.at(i).id, title);
@@ -92,16 +84,18 @@ std::vector<OcrResult> idToTitlePipeline(const std::vector<Episode> &episodes,
         std::println("{} after {} titlecards!", e.what(), (i + 1));
         const unsigned int cycles{
             static_cast<unsigned int>(std::ceil(episodes.size() / (i + 1)))};
-        std::println("With {} total titlecards this is gonna take {} "
-                     "minutes!\nIf you want it to go faster consider local-LLM "
-                     "approach or paying for a better geminiAPI Service-Tier.",
-                     episodes.size(), cycles);
+        std::println(
+            "If you are using the Free-Tier of the GeminiAPI this there is a "
+            "hard rate-timit on it - for me it was 20 Requests per DAY!\n You "
+            "can either let this programm run somewhere for a few weeks to "
+            "sort a whole series or find somewhere to run the ollama container "
+            "with the vision model...");
 
         // message should only be printed the first time rate limit is hit
         displayTimeEstimate = false;
       }
 
-      // sleep for 1 min to reset rate limit
+      // sleep for 1 min to try reset rate limit (wont work sadly)
       std::this_thread::sleep_for(std::chrono::seconds(60));
     }
   }
