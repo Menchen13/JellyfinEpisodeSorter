@@ -5,6 +5,7 @@ find_package(cpr REQUIRED)
 find_package(nlohmann_json REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(cppcodec REQUIRED)
+find_package(rapidfuzz REQUIRED)
 
 enable_testing()
 

@@ -1,9 +1,22 @@
 [requires]
-cpr/1.14.2
-nlohmann_json/3.12.0
-gtest/1.17.0
-opencv/4.13.0
-cppcodec/0.2
+cpr/1.14.2 # Web requests
+nlohmann_json/3.12.0 # Json
+gtest/1.17.0 # Unit-Testing
+opencv/4.13.0 # Image processing and access to ffmpeg
+cppcodec/0.2 # base64 encoding
+rapidfuzz/3.3.3 # title matching
+
+# --- Security Overrides (Transitive Dependencies) ---
+# Adding these here forces cpr and opencv to use these secure versions
+openssl/3.6.2
+zlib/1.3.2
+
+[tool_requires]
+# --- Build-Time Tools ---
+# Moving these here ensures they are treated as build tools, 
+# mitigating their "vulnerabilities" since they aren't in your final app.
+nasm/2.16.01
+yasm/1.3.0
 
 [generators]
 CMakeDeps
@@ -20,7 +33,7 @@ opencv/*:imgcodecs=True
 opencv/*:with_jpeg=libjpeg
 opencv/*:imgproc=True
 
-# --- ALLES ANDERE DEAKTIVIEREN ---
+# --- Deactivate everything else ---
 opencv/*:dnn=False
 opencv/*:ml=False
 opencv/*:highgui=False
@@ -45,3 +58,13 @@ ffmpeg/*:with_alsa=False
 ffmpeg/*:with_xcb=False
 ffmpeg/*:with_vdpau=False
 ffmpeg/*:with_vaapi=False
+
+# --- cURL Diet ---
+libcurl/*:with_ftp=False
+libcurl/*:with_mqtt=False
+libcurl/*:with_imap=False
+libcurl/*:with_pop3=False
+libcurl/*:with_smtp=False
+libcurl/*:with_smb=False
+libcurl/*:with_telnet=False
+libcurl/*:with_tftp=False
