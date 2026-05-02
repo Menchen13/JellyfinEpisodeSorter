@@ -25,7 +25,7 @@ concept JsonParsableInput =
 
 // concept for my own structs
 template <typename T>
-concept MediaItem = std::same_as<T, Series> || std::same_as<T, Episode>;
+concept MediaItem = std::same_as<T, JellyfinSeries> || std::same_as<T, JellyfinEpisode>;
 
 // returns vector of jellyfin structs
 // initalises Episode.season and Episode.episodeNumber to 0

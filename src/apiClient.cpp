@@ -63,7 +63,7 @@ std::string GoogleOCR::base64ToTitle(const std::string &base64,
   // this requires a wrapper struct to configure the session-obj at creation
   // time. this way when the static obj is created it is immediatly ready to
   // roll
-  static OcrSessionConfig config(
+  static CprSessionConfig config(
       "https://generativelanguage.googleapis.com/v1beta/"
       "models/gemini-2.5-flash-lite:generateContent",
       cpr::Header{{"x-goog-api-key", googleApiKey},
@@ -117,7 +117,7 @@ std::string GoogleOCR::base64ToTitle(const std::string &base64,
 std::string OllamaOCR::base64ToTitle(const std::string &base64,
                                      const std::string &url) {
 
-  static OcrSessionConfig config(
+  static CprSessionConfig config(
       url, cpr::Header{{"Content-Type", "application/json"}});
 
   // could proably make model a parameter in case people wanna use something else

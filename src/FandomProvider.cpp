@@ -1,9 +1,12 @@
+#include <print>
+#include <regex>
+#include <vector>
+
 #include <cpr/cpr.h>
 #include <nlohmann/json.hpp>
-#include <print>
-#include <FandomProvider.hpp>
 
-#include <regex>
+#include <FandomProvider.hpp>
+#include <models.hpp>
 
 using nlohmann::json;
 using std::map;
@@ -41,8 +44,7 @@ fandomProvider::fandomProvider(const string &listUrl, fandomParser func)
   }
 };
 
-map<unsigned int, map<unsigned int, string>>
-fandomProvider::getEpisodes() const {
+std::vector<Episode> fandomProvider::getEpisodes() const {
 
   cpr::Response r = cpr::Get(apiUrl, urlParameters);
 
@@ -54,21 +56,8 @@ fandomProvider::getEpisodes() const {
   return parsingFunc(wikitext);
 }
 
-void helperPrintMaps(
-    std::map<unsigned int, std::map<unsigned int, std::string>> A) {
-  for (const auto &[seasonNum, episodesMap] : A) {
-    std::println("===STAFFEL {}===", seasonNum);
-
-    for (const auto &[episodesNum, title] : episodesMap) {
-      std::println("S{:02}E{:02} - {}", seasonNum, episodesNum, title);
-    }
-    std::print("\n");
-  }
-};
-
-std::map<unsigned int, std::map<unsigned int, std::string>>
-adventureTime(const std::string &wikitext) {
-  map<unsigned int, map<unsigned int, string>> episodes;
+std::vector<Episode> adventureTime(const std::string &wikitext) {
+  std::vector<Episode> episodes;
 
   // Matches on either Season <number>o and captures number
   // the o is to only get the table ones not freetext
@@ -110,8 +99,8 @@ adventureTime(const std::string &wikitext) {
         title.erase(title.length() - suffix.length());
       }
 
-      // add Title to map and increment episode counter
-      episodes[currentSeason][currentEpisode++] = title;
+      // add to vector and increment episode counter
+      episodes.emplace_back(title, currentSeason, currentEpisode++);
     }
   }
   return episodes;

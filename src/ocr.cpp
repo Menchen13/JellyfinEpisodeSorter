@@ -53,7 +53,7 @@ std::string processTitlecard(cv::Mat &frame) {
   return b64;
 }
 
-std::vector<OcrResult> idToTitlePipeline(const std::vector<Episode> &episodes,
+std::vector<OcrResult> idToTitlePipeline(const std::vector<JellyfinEpisode> &episodes,
                                          const std::string &jellyfinUrl,
                                          const unsigned int &targetSecond,
                                          ocrProvider ocrCallback) {
@@ -70,14 +70,14 @@ std::vector<OcrResult> idToTitlePipeline(const std::vector<Episode> &episodes,
 
       cv::Mat frame = getTitlecard(streamUrl, targetSecond);
 
-      std::string base64 = processTitlecard(frame);
+      const std::string base64 = processTitlecard(frame);
 
       // if this is the googleAPI it may throw RateLimitException
-      std::string title = ocrCallback(base64);
+      const std::string title = ocrCallback(base64);
 
       results.emplace_back(episodes.at(i).id, title);
 
-      i++;
+      if ((++i % 10) == 0) std::println("Done with {}/{}", i, episodes.size());
 
     } catch (const RateLimitException &e) {
       if (displayTimeEstimate) {

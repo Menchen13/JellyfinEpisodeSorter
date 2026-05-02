@@ -6,10 +6,9 @@
 #include <string>
 
 #include "IEpisodeProvider.hpp"
+#include "models.hpp"
 
-using fandomParser =
-    std::function<std::map<unsigned, std::map<unsigned int, std::string>>(
-        const std::string &)>;
+using fandomParser = std::function<std::vector<Episode>(const std::string &)>;
 
 /**
  * @class fandomProvider
@@ -33,12 +32,11 @@ public:
    * nested maps Just read check out the adventureTime example func if you wanna
    * get into it (cant recommend it).
    *
-   * @throw std::invalid_argument Thrown if Urlschema does not match
+   * @throw std::invalid_argument thrown if Urlschema does not match
    */
   fandomProvider(const std::string &listUrl, fandomParser func);
 
-  [[nodiscard]] std::map<unsigned int, std::map<unsigned int, std::string>>
-  getEpisodes() const override;
+  [[nodiscard]] std::vector<Episode> getEpisodes() const override;
 };
 
 /**
@@ -47,8 +45,5 @@ public:
  *
  * @param A Nested maps to be printed
  */
-void helperPrintMaps(
-    std::map<unsigned int, std::map<unsigned int, std::string>> A);
 
-std::map<unsigned int, std::map<unsigned int, std::string>>
-adventureTime(const std::string &wikitext);
+std::vector<Episode> adventureTime(const std::string &wikitext);

@@ -19,7 +19,7 @@ struct RateLimitException : public std::runtime_error {
 // expected object
 std::expected<OcrResult, std::string> idToTitle(const std::string &url, const std::string &apiKey, const std::string &id, const std::string &googleApiKey) noexcept;
 
-std::vector<OcrResult> idToTitlePipeline(const std::vector<Episode> &episodes, const std::string &jellyfinUrl, const unsigned int &targetSecond, ocrProvider ocrCallback);
+std::vector<OcrResult> idToTitlePipeline(const std::vector<JellyfinEpisode> &episodes, const std::string &jellyfinUrl, const unsigned int &targetSecond, ocrProvider ocrCallback);
 
 
 // takes in a streamUrl to the episode and the targetSecond to Jump to

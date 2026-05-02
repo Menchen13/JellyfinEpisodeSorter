@@ -6,10 +6,10 @@
 #include <cpr/http_version.h>
 #include <cpr/session.h>
 
-struct OcrSessionConfig {
+struct CprSessionConfig {
   cpr::Session session;
 
-  explicit OcrSessionConfig(std::string_view url, const cpr::Header &headers) {
+  explicit CprSessionConfig(std::string_view url, const cpr::Header &headers) {
     session.SetUrl(cpr::Url{url});
     session.SetTimeout(std::chrono::seconds(30));
     session.SetHeader(headers);

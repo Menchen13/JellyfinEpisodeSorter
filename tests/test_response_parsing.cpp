@@ -15,9 +15,9 @@ TEST(ResponseParsing, Series) {
   std::ifstream response(dataPath);
   ASSERT_TRUE(response.is_open()) << "Could not find: " << dataPath;
 
-  std::vector<Series> result = parseJellyfinResponse<Series>(response);
+  std::vector<JellyfinSeries> result = parseJellyfinResponse<JellyfinSeries>(response);
 
-  std::vector<Series> known(
+  std::vector<JellyfinSeries> known(
       {{"026193846bf3f910617f1878634f306a",
         "Adventure Time - Abenteuerzeit mit Finn und Jake"},
        {"10e409d2d34b38e270c1dfdfefef4fda", "ADVENTURE TIME EXTRAS"},
@@ -37,9 +37,9 @@ TEST(ResponseParsing, Episode) {
   ASSERT_TRUE(response.is_open())
       << "Could not find: " << dataPath << "Could not find: " << dataPath;
 
-  std::vector<Episode> result = parseJellyfinResponse<Episode>(response);
+  std::vector<JellyfinEpisode> result = parseJellyfinResponse<JellyfinEpisode>(response);
 
-  std::vector<Episode> known(
+  std::vector<JellyfinEpisode> known(
       {{"764d68737212c54fec655863ae9c96ed", "The Enchiridion!",
         "b7a1bd178672f559ce36517f9d91613a"},
        {"f962d726e9adeb2d2bb6f5e415eb828c", "Evicted!",
