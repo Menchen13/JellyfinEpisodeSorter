@@ -1,4 +1,3 @@
-#include <print>
 #include <regex>
 #include <vector>
 
@@ -6,10 +5,10 @@
 #include <nlohmann/json.hpp>
 
 #include <FandomProvider.hpp>
+#include <jesLog.hpp>
 #include <models.hpp>
 
 using nlohmann::json;
-using std::map;
 using std::string;
 
 fandomProvider::fandomProvider(const string &listUrl, fandomParser func)
@@ -47,6 +46,16 @@ fandomProvider::fandomProvider(const string &listUrl, fandomParser func)
 std::vector<Episode> fandomProvider::getEpisodes() const {
 
   cpr::Response r = cpr::Get(apiUrl, urlParameters);
+
+  if (r.error) {
+    throw std::runtime_error(
+        std::format("Network Error: {}\nIn getEpisodes", r.error.message));
+  } else if (r.status_code >= 400) {
+    throw std::runtime_error(
+        std::format("HTTP GET Error: {}\nIn getEpisodes", r.status_line));
+  }
+
+  JES_DEBUG("{} returned {}", r.url.c_str(), r.status_line);
 
   json j = json::parse(r.text);
 
@@ -103,5 +112,7 @@ std::vector<Episode> adventureTime(const std::string &wikitext) {
       episodes.emplace_back(title, currentSeason, currentEpisode++);
     }
   }
+
+  JES_DEBUG("Retrieved Episode Order:\n {}", episodes);
   return episodes;
 }

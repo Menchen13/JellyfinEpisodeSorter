@@ -5,6 +5,7 @@
 #include <nlohmann/json.hpp>
 
 #include "apiClient.hpp"
+#include "jesLog.hpp"
 #include "ocr.hpp"
 
 using nlohmann::json;
@@ -29,6 +30,7 @@ std::string jellyfin::fetchSeriesRaw(const std::string &url,
     throw std::runtime_error(
         std::format("HTTP GET Error: {}\nIn fetchSeriesRaw", r.status_line));
   }
+  JES_INFO("Fetched series raw from {}", r.url.c_str());
   return r.text;
 }
 
@@ -52,6 +54,7 @@ std::string jellyfin::fetchEpisodesRaw(const std::string &url,
     throw std::runtime_error(
         std::format("HTTP GET Error: {}\nIn fetchEpisodesRaw", r.status_line));
   }
+  JES_INFO("Fetched episodes raw from {}", r.url.c_str());
   return r.text;
 }
 
@@ -120,8 +123,8 @@ std::string OllamaOCR::base64ToTitle(const std::string &base64,
   static CprSessionConfig config(
       url, cpr::Header{{"Content-Type", "application/json"}});
 
-  // could proably make model a parameter in case people wanna use something else
-  // but then again, if they can spin up anything in an ollama container,
+  // could proably make model a parameter in case people wanna use something
+  // else but then again, if they can spin up anything in an ollama container,
   // might as well spin this up real quick
   json payload = {
       {"model", "llama3.2-vision"},

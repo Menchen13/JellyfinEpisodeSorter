@@ -11,10 +11,12 @@
 #include <opencv2/imgproc.hpp>
 #include <opencv2/videoio.hpp>
 
+#include "jesLog.hpp"
 #include "ocr.hpp"
 
 cv::Mat getTitlecard(const std::string &streamUrl,
                      const unsigned int &targetSecond) {
+  JES_DEBUG("Getting titlecard in {} at second {}", streamUrl, targetSecond);
   cv::VideoCapture video;
   video.setExceptionMode(true);
 
@@ -53,10 +55,10 @@ std::string processTitlecard(cv::Mat &frame) {
   return b64;
 }
 
-std::vector<OcrResult> idToTitlePipeline(const std::vector<JellyfinEpisode> &episodes,
-                                         const std::string &jellyfinUrl,
-                                         const unsigned int &targetSecond,
-                                         ocrProvider ocrCallback) {
+std::vector<OcrResult>
+idToTitlePipeline(const std::vector<JellyfinEpisode> &episodes,
+                  const std::string &jellyfinUrl,
+                  const unsigned int &targetSecond, ocrProvider ocrCallback) {
   std::vector<OcrResult> results;
   results.reserve(episodes.size());
 
@@ -77,14 +79,13 @@ std::vector<OcrResult> idToTitlePipeline(const std::vector<JellyfinEpisode> &epi
 
       results.emplace_back(episodes.at(i).id, title);
 
-      if ((++i % 10) == 0) std::println("Done with {}/{}", i, episodes.size());
+      if ((++i % 10) == 0)
+        JES_INFO("Done with {}/{}", i, episodes.size());
 
     } catch (const RateLimitException &e) {
       if (displayTimeEstimate) {
-        std::println("{} after {} titlecards!", e.what(), (i + 1));
-        const unsigned int cycles{
-            static_cast<unsigned int>(std::ceil(episodes.size() / (i + 1)))};
-        std::println(
+        JES_WARN("{} after {} titlecards!", e.what(), (i + 1));
+        JES_WARN(
             "If you are using the Free-Tier of the GeminiAPI this there is a "
             "hard rate-timit on it - for me it was 20 Requests per DAY!\n You "
             "can either let this programm run somewhere for a few weeks to "
