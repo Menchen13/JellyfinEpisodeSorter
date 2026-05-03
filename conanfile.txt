@@ -5,6 +5,7 @@ gtest/1.17.0 # Unit-Testing
 opencv/4.13.0 # Image processing and access to ffmpeg
 cppcodec/0.2 # base64 encoding
 rapidfuzz/3.3.3 # title matching
+spdlog/1.17.0 # logging
 
 # --- Security Overrides (Transitive Dependencies) ---
 # Adding these here forces cpr and opencv to use these secure versions
@@ -25,6 +26,9 @@ CMakeToolchain
 [options]
 cpr/*:signal=False #signal doesnt play with multithread from what i gather
 gtest/*:shared=True #smaller test binaries
+
+spdlog/*:shared=True
+spdlog/*:use_std_fmt=True
 
 opencv/*:shared=True
 opencv/*:videoio=True

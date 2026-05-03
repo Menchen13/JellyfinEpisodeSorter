@@ -6,6 +6,7 @@ find_package(nlohmann_json REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(cppcodec REQUIRED)
 find_package(rapidfuzz REQUIRED)
+find_package(spdlog REQUIRED)
 
 enable_testing()
 
