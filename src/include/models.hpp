@@ -2,6 +2,7 @@
 
 #include <format>
 #include <ostream>
+#include <ranges>
 #include <string>
 
 #include <nlohmann/json.hpp>
@@ -9,7 +10,7 @@
 struct Episode {
   std::string title;
   unsigned int season;
-  unsigned int episiodeNumber;
+  unsigned int episodeNumber;
 };
 
 struct JellyfinSeries {
@@ -36,12 +37,14 @@ struct OcrResult {
   std::string extractedTitle;
 };
 
-inline std::ostream &operator<<(std::ostream &os, const JellyfinSeries &series) {
+inline std::ostream &operator<<(std::ostream &os,
+                                const JellyfinSeries &series) {
   return os << "Series{id: \"" << series.id << "\", name: \"" << series.name
             << "\"}";
 }
 
-inline std::ostream &operator<<(std::ostream &os, const JellyfinEpisode &episode) {
+inline std::ostream &operator<<(std::ostream &os,
+                                const JellyfinEpisode &episode) {
   return os << "Episode{id: \"" << episode.id << "\", name: \"" << episode.title
             << "\", seasonId: \"" << episode.seasonId << "\", season: \""
             << episode.season << "\", episiodeNumber: \""
@@ -66,14 +69,26 @@ inline void from_json(const nlohmann::json &j, JellyfinEpisode &e) {
   j.at("SeasonId").get_to(e.seasonId);
 }
 
+// creating format specifiers to try out new modern way
+// of making types printable
+//
+// sinlge struct
+template <> struct std::formatter<Episode> {
+  constexpr auto parse(std::format_parse_context &ctx) { return ctx.begin(); }
 
-template <>
-struct std::formatter<Episode> {
-  constexpr auto parse(std::format_parse_context& ctx) {
-    return ctx.begin(); 
+  auto format(const Episode &obj, auto &ctx) const {
+    return std::format_to(ctx.out(), "(Season: {}, Episode: {}, Title: {})",
+                          obj.season, obj.episodeNumber, obj.title);
   }
+};
 
-  auto format(const Episode& obj, std::format_context& ctx) const {
-    return std::format_to(ctx.out(), "(Season: {}, Episode: {}, Title: {})", obj.season, obj.episiodeNumber, obj.title);
+// container of structs
+template <std::ranges::input_range R>
+  requires std::same_as<std::ranges::range_value_t<R>, Episode>
+struct std::formatter<R> : std::range_formatter<Episode> {
+  constexpr formatter() {
+    // set brackets and seperator
+    this->set_brackets("[\n  ", "\n]");
+    this->set_separator(",\n  ");
   }
 };
