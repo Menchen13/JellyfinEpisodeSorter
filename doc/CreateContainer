@@ -3,5 +3,5 @@ docker run -d --gpus=all -v ollama_storage:/root/.ollama -p 11434:11434 --name o
 
 # run llama3.2-vision inside the container
 # this will pull the model the first time so it is available when
-# JSE tries to query it
+# JES tries to query it
 docker exec -it ollama ollama run llama3.2-vision
