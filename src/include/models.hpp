@@ -9,7 +9,7 @@
 
 struct Episode {
   std::string title;
-  unsigned int season;
+  unsigned int seasonNumber;
   unsigned int episodeNumber;
 };
 
@@ -25,8 +25,8 @@ struct JellyfinEpisode {
   std::string id;
   std::string title;
   std::string seasonId;
-  unsigned int season = 0;
-  unsigned int episiodeNumber = 0;
+  unsigned int seasonNumber = 0;
+  unsigned int episodeNumber = 0;
 
   // only works in cpp20 and up i think
   bool operator==(const JellyfinEpisode &) const = default;
@@ -43,13 +43,6 @@ inline std::ostream &operator<<(std::ostream &os,
             << "\"}";
 }
 
-inline std::ostream &operator<<(std::ostream &os,
-                                const JellyfinEpisode &episode) {
-  return os << "Episode{id: \"" << episode.id << "\", name: \"" << episode.title
-            << "\", seasonId: \"" << episode.seasonId << "\", season: \""
-            << episode.season << "\", episiodeNumber: \""
-            << episode.episiodeNumber << "\"}";
-}
 
 inline std::ostream &operator<<(std::ostream &os, const OcrResult &OcrResult) {
   return os << "OcrResult{jellyfinEpisodeId: \"" << OcrResult.jellyfinEpisodeId
@@ -72,13 +65,33 @@ inline void from_json(const nlohmann::json &j, JellyfinEpisode &e) {
 // creating format specifiers to try out new modern way
 // of making types printable
 //
-// sinlge struct
+// single struct
 template <> struct std::formatter<Episode> {
   constexpr auto parse(std::format_parse_context &ctx) { return ctx.begin(); }
 
   auto format(const Episode &obj, auto &ctx) const {
     return std::format_to(ctx.out(), "(Season: {}, Episode: {}, Title: {})",
-                          obj.season, obj.episodeNumber, obj.title);
+                          obj.seasonNumber, obj.episodeNumber, obj.title);
+  }
+};
+
+template <> struct std::formatter<OcrResult> {
+  constexpr auto parse(std::format_parse_context &ctx) { return ctx.begin(); }
+
+  auto format(const OcrResult &obj, auto &ctx) const {
+    return std::format_to(ctx.out(), "(JellyfinID: {}, ExtractedTitle: {})",
+                          obj.jellyfinEpisodeId, obj.extractedTitle);
+  }
+};
+
+template <> struct std::formatter<JellyfinEpisode> {
+  constexpr auto parse(std::format_parse_context &ctx) { return ctx.begin(); }
+
+  auto format(const JellyfinEpisode obj, auto &ctx) const {
+    return std::format_to(
+        ctx.out(),
+        "(id: {}, name {}, seasonId: {}, seasonNumber: {}, episodeNumber: {})",
+        obj.id, obj.title, obj.seasonId, obj.seasonNumber, obj.episodeNumber);
   }
 };
 
