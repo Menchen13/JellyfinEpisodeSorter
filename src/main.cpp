@@ -22,7 +22,15 @@
 
 using nlohmann::json;
 
+struct MatchResult {
+  std::vector<const OcrResult *> revisit;
+  std::vector<const OcrResult *> unmatched;
+};
+
 JellyfinSeries promptUser(const std::vector<JellyfinSeries> &s);
+MatchResult processFuzzyMatches(const std::vector<const OcrResult *> &ocrBatch,
+                                std::vector<Episode> &episodesOrder,
+                                std::vector<JellyfinEpisode> &episodeVec);
 
 int main() {
   std::println("Hello World");
@@ -32,7 +40,7 @@ int main() {
   // needs to be sanity checked before actual use
   // perhaps make url and apiKey into a FACADE struct
   // maybe add gemini model to use as a parameter
-  const std::string url = "https://jellyfin.root.adrean.eu";
+  const std::string jellyfinUrl = "https://jellyfin.root.adrean.eu";
   const std::string apiKey = "";
   const std::string title = "Adventure Time";
   const unsigned int targetSecond = 26;
@@ -48,7 +56,7 @@ int main() {
 
   // lamdas for ocrCallback
   // these just wrap the base64ToTitle functions, making sure to
-  // keeo ocrProvider signature. Not necessary rn since both have same sig,
+  // keep ocrProvider signature. Not necessary rn since both have same sig,
   // but was fun learning about and could be good pattern if other OCR providers
   // need more params
   ocrProvider googleOCR = [&googleApiKey](const std::string &base64) {
@@ -74,7 +82,8 @@ int main() {
                        adventureTime)
             .getEpisodes();
 
-    const std::string rawSeries = jellyfin::fetchSeriesRaw(url, title, apiKey);
+    const std::string rawSeries =
+        jellyfin::fetchSeriesRaw(jellyfinUrl, title, apiKey);
 
     const std::vector<JellyfinSeries> seriesVec =
         parseJellyfinResponse<JellyfinSeries>(rawSeries);
@@ -93,7 +102,7 @@ int main() {
     }
 
     const std::string rawEpisodes =
-        jellyfin::fetchEpisodesRaw(url, series.id, apiKey);
+        jellyfin::fetchEpisodesRaw(jellyfinUrl, series.id, apiKey);
 
     std::vector<JellyfinEpisode> episodeVec =
         parseJellyfinResponse<JellyfinEpisode>(rawEpisodes);
@@ -118,71 +127,58 @@ int main() {
     JES_INFO("Starting OCR pipeline - this might take a while.");
 
     const std::vector<OcrResult> ocrResults =
-        idToTitlePipeline(episodeVec, url, targetSecond, ocrCallback);
+        idToTitlePipeline(episodeVec, jellyfinUrl, targetSecond, ocrCallback);
 
-    // matching titles and building final JellyfinEpisodes
-    for (const auto &ocr : ocrResults) {
+    // prepare initial batch of pointers
+    // transform creates a lazy view of the transformed elements
+    // and ranges to created a new vector from it in a single step
+    std::vector<const OcrResult *> currentBatch =
+        ocrResults |
+        std::views::transform([](const auto &ocr) { return &ocr; }) |
+        std::ranges::to<std::vector<const OcrResult *>>();
 
-      double bestScore{92.0};
-      std::vector<const Episode *> bestMatches{};
+    // matching loop
+    MatchResult currentResult;
+    bool keepRunning{true};
+    while (keepRunning) {
+      size_t previousRevisitSize = currentBatch.size();
 
-      for (const auto &episode : episodesOrder) {
-        // everything under 85.0 will return 0
-        const double score = rapidfuzz::fuzz::token_set_ratio(
-            ocr.extractedTitle, episode.title, 92.0);
+      // Run the matching function
+      currentResult =
+          processFuzzyMatches(currentBatch, episodesOrder, episodeVec);
 
-        if (score > bestScore) {
-          // new bestScore
-          bestScore = score;
-          bestMatches.clear();
-          bestMatches.push_back(&episode);
-        } else if (score == bestScore) {
-          // matches existing bestScore
-          bestMatches.push_back(&episode);
-        }
-      } // for loop over episodeOrder
-
-      if (bestMatches.size() == 1) {
-        // exact match
-
-        // match the id of the OcrResult to the id JellyfinEpisode Vector
-        // iterator i points to the object that can now be enriched with Ocr Data
-        // Use lower_bound for this to take advantage of the sorting earlier
-        const auto i = std::ranges::lower_bound(
-            episodeVec, ocr.jellyfinEpisodeId, {}, &JellyfinEpisode::id);
-
-        // safety check the found iterator is valid and correct
-        // technically second check shouldnt be necessary since jellyfinIDs have
-        // to be unique for the system to work, but i have been wrong before
-        if (i != episodeVec.end() && i->id == ocr.jellyfinEpisodeId) {
-          // enrich the JellyfinEpisode with oder information based on Title
-          // match
-          Episode matchingEpisode{*bestMatches[0]};
-          i->seasonNumber = matchingEpisode.seasonNumber;
-          i->episodeNumber = matchingEpisode.episodeNumber;
-          i->title = ocr.extractedTitle;
-
-          // log it
-          JES_INFO("Successfully enriched JellyfinEpisode: {}", *i);
-
-          // remove matched episode from matching pool
-          std::swap(matchingEpisode, episodesOrder.back());
-          episodesOrder.pop_back();
-        } else {
-          // Log error and continue with the rest
-          JES_ERROR("Unable to match OcrResult: {} to JellyfinEpisodes by ID - "
-                    "skipping this JellyfinEpisode in metadataSet routine!",
-                    ocr);
-        }
-
-      } else if (bestMatches.size() > 1) {
-        // multiple match figure out what to do, probably promt user or smt
-      } else {
-        // no match bestIndexes is empty
-        // figure out what to do, probably prompt user or smt
+      // If there's nothing to revisit, we are completely done!
+      if (currentResult.revisit.empty()) {
+        break;
       }
 
-    } // matching titles and building final JellyfinEpisodes
+      // If the revisit list size didn't shrink, it means removing the
+      // exact matches didn't help resolve the ambiguities. We are stuck.
+      if (currentResult.revisit.size() == previousRevisitSize) {
+        JES_ERROR("Stalemate reached. Cannot resolve {} uncertain matches.",
+                  currentResult.revisit.size());
+        break;
+      }
+
+      // Otherwise, the pool shrunk! Feed the unresolved items back in for
+      // another pass.
+      JES_INFO("Re-evaluating {} inconclusive matches with narrowed pool...",
+               currentResult.revisit.size());
+      currentBatch = currentResult.revisit;
+    } // while (keeprunning)
+
+    // Inform user about failure to match everything.
+    if (!currentResult.unmatched.empty() || !currentResult.revisit.empty()) {
+      const auto deref = std::views::transform(
+          [](const OcrResult *ptr) -> const OcrResult & { return *ptr; });
+
+      std::println("Requires manual intervention for {} unmatched "
+                   "OcrResults!\nDumping...",
+                   currentResult.unmatched.size() +
+                       currentResult.revisit.size());
+      std::println("{}\n{}", currentResult.unmatched | deref,
+                   currentResult.revisit | deref);
+    }
 
     // seperate step in main which can also do some error handeling - if the
     // match fails or smt interact with user. fuzzymatch the struct returned by
@@ -230,4 +226,109 @@ JellyfinSeries promptUser(const std::vector<JellyfinSeries> &s) {
       std::println("Incorrect selection!");
     }
   }
+}
+
+MatchResult processFuzzyMatches(const std::vector<const OcrResult *> &ocrBatch,
+                                std::vector<Episode> &episodesOrder,
+                                std::vector<JellyfinEpisode> &episodeVec) {
+  MatchResult result;
+
+  for (const OcrResult *ocrPtr : ocrBatch) {
+
+    auto applyMatch = [&](const size_t winningIndex) {
+      // match the id of the OcrResult to the id JellyfinEpisode Vector
+      // iterator i points to the object that can now be enriched with Ocr
+      // Data. Use lower_bound for this to take advantage of the sorting
+      // earlier
+      const auto i = std::ranges::lower_bound(
+          episodeVec, ocrPtr->jellyfinEpisodeId, {}, &JellyfinEpisode::id);
+
+      // safety check the found iterator is valid and correct
+      // technically second check shouldnt be necessary since jellyfinIDs have
+      // to be unique for the system to work, but i have been wrong before
+      if (i != episodeVec.end() && i->id == ocrPtr->jellyfinEpisodeId) {
+        // enrich the JellyfinEpisode with oder information based on Title
+        // match
+        i->seasonNumber = episodesOrder[winningIndex].seasonNumber;
+        i->episodeNumber = episodesOrder[winningIndex].episodeNumber;
+        i->title = ocrPtr->extractedTitle;
+
+        // log it
+        JES_INFO("Successfully enriched JellyfinEpisode: {}", *i);
+
+        // remove matched episode from matching pool
+        std::swap(episodesOrder[winningIndex], episodesOrder.back());
+        episodesOrder.pop_back();
+      } else {
+        // Log error and continue with the rest
+        // this should never realisticly be called since it needs a missmatch of
+        // JellyfinIDs which should be impossible
+        result.unmatched.push_back(ocrPtr);
+        JES_ERROR("Unable to match OcrResult: {} to JellyfinEpisodes by ID - "
+                  "skipping this JellyfinEpisode in metadataSet routine!",
+                  *ocrPtr);
+      }
+    };
+
+    double bestScore{92.0};
+    std::vector<size_t> bestMatches{};
+
+    for (size_t j = 0; j < episodesOrder.size(); j++) {
+      // everything under 92.0 will return 0
+      const double score = rapidfuzz::fuzz::token_set_ratio(
+          ocrPtr->extractedTitle, episodesOrder[j].title, 92.0);
+
+      if (score > bestScore) {
+        // new bestScore
+        bestScore = score;
+        bestMatches.clear();
+        bestMatches.push_back(j);
+      } else if (score == bestScore) {
+        // matches existing bestScore
+        bestMatches.push_back(j);
+      }
+    } // for loop over episodeOrder
+
+    if (bestMatches.size() == 1) {
+      // exact match
+      applyMatch(bestMatches[0]);
+
+    } else if (bestMatches.size() > 1) {
+      // run tie-breaker with stricter matching
+      double strictBestScore{0.0};
+      std::vector<size_t> strictWinners{};
+
+      // loop over the indices that tied
+      for (const size_t &tiedIndex : bestMatches) {
+        // Use the highly strict algorithm
+        double strictScore = rapidfuzz::fuzz::ratio(
+            ocrPtr->extractedTitle, episodesOrder[tiedIndex].title);
+
+        if (strictScore > strictBestScore) {
+          strictBestScore = strictScore;
+          strictWinners.clear();
+          strictWinners.push_back(tiedIndex);
+        } else if (strictScore == strictBestScore) {
+          strictWinners.push_back(tiedIndex);
+        }
+      }
+
+      if (strictWinners.size() == 1) {
+        // SUCCESS! We broke the tie.
+        applyMatch(strictWinners[0]);
+
+      } else {
+        // The tie-breaker failed. It is genuinely a stalemate.
+        JES_INFO("Inconclusive match even after tie-breaker for OcrResult: {}",
+                 *ocrPtr);
+        result.revisit.push_back(ocrPtr);
+      }
+    } else {
+      // no match bestIndexes is empty
+      JES_ERROR("No match for OcrResult: {}", *ocrPtr);
+      result.unmatched.push_back(ocrPtr);
+    }
+  }
+
+  return result;
 }
