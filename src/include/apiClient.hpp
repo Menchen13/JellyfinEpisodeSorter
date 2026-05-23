@@ -29,6 +29,7 @@ std::string fetchSeriesRaw(const std::string &url,
 std::string fetchEpisodesRaw(const std::string &url,
                              const std::string &seriesId,
                              const std::string &apiKey);
+void setEpisodeMetadata();
 } // namespace jellyfin
 
 namespace GoogleOCR {

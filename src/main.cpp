@@ -180,13 +180,11 @@ int main() {
                    currentResult.revisit | deref);
     }
 
-    // seperate step in main which can also do some error handeling - if the
-    // match fails or smt interact with user. fuzzymatch the struct returned by
-    // OCR to list from Episode provider on name and on Episode structs by id.
-    // Then there is id(EpisodeStruct)->name(OcrResult)->Season&Episode
-    // number(map from provider) which can be used for last step
+    // Run the MetadataSet routine with multiPerform and chunked batches
+    std::vector<std::shared_ptr<cpr::Session>> sessionPool{};
+    sessionPool.reserve(10);
 
-    // fire of the apiCalls to set episode titles with id to name matches
+
   } catch (const json::exception &e) {
     JES_ERROR("Json exception thrown: {}\n", e.what());
     return -1;
